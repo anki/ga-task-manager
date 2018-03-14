@@ -1,0 +1,4 @@
+
+Usage: ga-task-manager
+
+  Generates a minified, ga-task-manager file and source map.
