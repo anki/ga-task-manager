@@ -7,7 +7,6 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    // Anki Test Property
     ga('create', 'GA-PROPERTY-ID', 'auto');
 
     // Require the plugin
@@ -30,6 +29,16 @@
     ga('gaTaskManager:setCustomDimension', 2, function(){return Date.now() / 1000 | 0})
 
     ga('send', 'pageview');
+
+    // Remove logShinyStringAgain function
+    ga('gaTaskManager:removeFunctionFromTask', 'customTask', 'logShinyStringAgain');
+
+    // Unset the function setting the dimension at every hit which we added earlier
+    ga('gaTaskManager:unsetCustomDimension', 1);
+
+    // Trigger a second hit
+    ga('send', 'pageview');
+
   </script>
   <script async src="/ga-task-manager.js"></script>
 </head>
