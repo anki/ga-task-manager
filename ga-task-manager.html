@@ -38,8 +38,10 @@
     // Unset the function setting the dimension at every hit which we added earlier
     ga('GaTaskManager:unsetCustomDimension', 1);
 
-    // Trigger a second hit
+    // Trigger a second hit after 5 seconds
+    setTimeout(function () {
     ga('send', 'pageview');
+    }, 5000);
 
   </script>
   <script async src="/ga-task-manager.js"></script>
