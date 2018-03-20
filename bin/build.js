@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * Modifications Copyright (C) 2017 Anki, Inc.
  */
 
@@ -25,7 +25,6 @@ const fs = require('fs-extra');
 const glob = require('glob');
 const {compile}= require('google-closure-compiler-js');
 const {rollup} = require('rollup');
-const memory = require('rollup-plugin-memory');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const path = require('path');
 const {SourceMapGenerator, SourceMapConsumer} = require('source-map');
@@ -47,7 +46,6 @@ module.exports = (output) => {
         const externs = glob.sync(path.join(externsDir, '*.js'))
             .reduce((acc, cur) => acc + fs.readFileSync(cur, 'utf-8'), '');
 
-            
         const closureFlags = {
           jsCode: [{
             src: rollupResult.code,
