@@ -12,31 +12,31 @@
     ga('create', 'GA-PROPERTY-ID', 'auto');
 
     // Require the plugin
-    ga('require', 'gaTaskManager');
+    ga('require', 'GaTaskManager');
 
     // Add a function to customTask
-    ga('gaTaskManager:addFunctionToTask', 'customTask', 'logShinyString', function(model){
+    ga('GaTaskManager:addFunctionToTask', 'customTask', 'logShinyString', function(model){
       console.log("Look at my shiny new random customTask");
     });
 
     // Add a second function to customTask
-    ga('gaTaskManager:addFunctionToTask', 'customTask', 'logShinyStringAgain', function(model){
+    ga('GaTaskManager:addFunctionToTask', 'customTask', 'logShinyStringAgain', function(model){
       console.log("Look at my shiny second random customTask which will be executed after the first!");
     });
 
     // Set Dimensions with a static string value
-    ga('gaTaskManager:setCustomDimension', 1, 14)
+    ga('GaTaskManager:setCustomDimension', 1, 14)
 
     // Set Dimensions with function to return the value at time of execution
-    ga('gaTaskManager:setCustomDimension', 2, function(){return Date.now() / 1000 | 0})
+    ga('GaTaskManager:setCustomDimension', 2, function(){return Date.now() / 1000 | 0})
 
     ga('send', 'pageview');
 
     // Remove logShinyStringAgain function
-    ga('gaTaskManager:removeFunctionFromTask', 'customTask', 'logShinyStringAgain');
+    ga('GaTaskManager:removeFunctionFromTask', 'customTask', 'logShinyStringAgain');
 
     // Unset the function setting the dimension at every hit which we added earlier
-    ga('gaTaskManager:unsetCustomDimension', 1);
+    ga('GaTaskManager:unsetCustomDimension', 1);
 
     // Trigger a second hit
     ga('send', 'pageview');
