@@ -45,7 +45,7 @@ For details on how `analytics.js` plugin methods work and how to invoke them, se
 
 ### Setting a Custom Dimension at every hit:
 
-This example sets a Custom Dimension `dimension2` at every Hit: 
+This example sets a Custom Dimension `dimension2` at every Hit:
 
 ```js
   var index = 1;
@@ -59,8 +59,8 @@ This example delegates the generation of the value for the Custom Dimension to a
 
 ```js
   var index = 2;
-  ga('gaTaskManager:setCustomDimension', index, function(){ 
-    return Date.now() / 1000 | 0; 
+  ga('gaTaskManager:setCustomDimension', index, function(){
+    return Date.now() / 1000 | 0;
   });
 
 ```
@@ -71,7 +71,7 @@ This example adds an arbitrary function to be executed after sending the normal 
 request to www.google-analytics.com/collect.
 
 ```js
-ga('gaTaskManager:addFunctionToTask', function(model) {
+ga('gaTaskManager:addFunctionToTask', 'sendHitTask', 'sendHitToMyServer', function(model) {
   // Send a copy of the request to a local server
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/localhits', true);
